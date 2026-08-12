@@ -22,6 +22,25 @@ class AuthController extends Controller
     }
 
     /**
+     * Deactivate the user's account.
+     */
+    public function deactivateAccount(Request $request): JsonResponse
+    {
+        $user = $request->user();
+        
+        // Set active flag to false
+        $user->update(['is_active' => false]);
+        
+        // Revoke all tokens
+        $user->tokens()->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Account deactivated successfully.'
+        ]);
+    }
+
+    /**
      * Soft delete the user's account.
      */
     public function deleteAccount(Request $request): JsonResponse
@@ -36,7 +55,7 @@ class AuthController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Account deleted successfully. Your data will be retained for 30 days.'
+            'message' => 'Account deleted successfully. You have 15 days to recover your account.'
         ]);
     }
 }

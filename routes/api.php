@@ -27,6 +27,7 @@ Route::prefix('v1')->group(function () {
     // Authenticated routes
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('auth/logout', [AuthController::class, 'logout']);
+        Route::post('auth/deactivate', [AuthController::class, 'deactivateAccount']);
         Route::delete('auth/delete-account', [AuthController::class, 'deleteAccount']);
 
         Route::get('auth/me', function (Request $request) {

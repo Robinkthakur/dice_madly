@@ -1,0 +1,127 @@
+/* Glassmorphism & Gradient Light Theme for Filament Panel */
+
+/* Custom fonts & global overrides */
+body.fi-body {
+    background: radial-gradient(circle at 10% 20%, rgba(252, 20, 76, 0.05) 0%, transparent 45%),
+                radial-gradient(circle at 90% 80%, rgba(120, 20, 252, 0.05) 0%, transparent 45%),
+                #f8fafc !important;
+    background-attachment: fixed !important;
+    color: #1e293b !important;
+    font-family: 'Outfit', sans-serif !important;
+}
+
+/* Translucent & Glassy Sidebar */
+aside.fi-sidebar {
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-right: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 4px 0 24px rgba(148, 163, 184, 0.08) !important;
+}
+
+/* Glassy Topbar */
+header.fi-topbar {
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Glassmorphic Cards, Sections, and Widgets */
+.fi-section, 
+.fi-ta-ctn, 
+.fi-wi-widget,
+.fi-wi-stats-overview-stat {
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px 0 rgba(148, 163, 184, 0.06) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Card Hovers */
+.fi-section:hover, 
+.fi-wi-stats-overview-stat:hover, 
+.fi-ta-ctn:hover {
+    transform: translateY(-2px);
+    border-color: rgba(252, 20, 76, 0.2) !important;
+    box-shadow: 0 12px 40px 0 rgba(252, 20, 76, 0.06) !important;
+}
+
+/* Inputs & Form Fields */
+.fi-fo-text-input input, 
+.fi-fo-select select, 
+.fi-fo-textarea textarea,
+.fi-fo-date-time-picker input {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 10px !important;
+    color: #0f172a !important;
+    backdrop-filter: blur(4px) !important;
+    transition: all 0.2s ease !important;
+}
+
+.fi-fo-text-input input:focus, 
+.fi-fo-select select:focus, 
+.fi-fo-textarea textarea:focus {
+    background: #ffffff !important;
+    border-color: #fc144c !important;
+    box-shadow: 0 0 0 3px rgba(252, 20, 76, 0.15) !important;
+}
+
+/* Buttons */
+.fi-btn {
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.025em !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Modal Styling */
+.fi-modal-window {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 24px 64px rgba(148, 163, 184, 0.15) !important;
+}
+
+/* Dropdown styling */
+.fi-dropdown-panel {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 10px 30px rgba(148, 163, 184, 0.1) !important;
+}
+
+/* Tabs layout */
+.fi-tabs {
+    background: rgba(0, 0, 0, 0.02) !important;
+    border-radius: 12px !important;
+    padding: 4px !important;
+    border: 1px solid rgba(0, 0, 0, 0.03) !important;
+}
+.fi-tabs-item-active {
+    background: rgba(252, 20, 76, 0.1) !important;
+    color: #fc144c !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(252, 20, 76, 0.2) !important;
+}
+
+/* Custom Table Row Styling */
+.fi-ta-record {
+    transition: background-color 0.2s ease !important;
+}
+.fi-ta-record:hover {
+    background-color: rgba(0, 0, 0, 0.01) !important;
+}
+
+/* Primary color active badges & tabs */
+.fi-badge-primary {
+    background-color: rgba(252, 20, 76, 0.1) !important;
+    color: #fc144c !important;
+    border: 1px solid rgba(252, 20, 76, 0.2) !important;
+}

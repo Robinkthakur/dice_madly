@@ -21,6 +21,7 @@ class DiscoveryController extends Controller
         $pref = $user->partnerPreferences()->first();
 
         $query = User::where('id', '!=', $user->id)
+            ->where('is_active', true)
             ->where('onboarding_step', 'completed');
 
         // Exclude users already swiped/liked/passed
@@ -68,6 +69,7 @@ class DiscoveryController extends Controller
 
         if ($users->isEmpty()) {
             $fallbackQuery = User::where('id', '!=', $user->id)
+                ->where('is_active', true)
                 ->where('onboarding_step', 'completed')
                 ->whereNotIn('id', $swipedUserIds);
 
@@ -124,6 +126,7 @@ class DiscoveryController extends Controller
 
         // 2. Fetch recommended matches
         $query = User::where('id', '!=', $user->id)
+            ->where('is_active', true)
             ->where('onboarding_step', 'completed');
 
         // Exclude users already swiped/liked/passed

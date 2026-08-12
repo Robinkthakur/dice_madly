@@ -16,6 +16,8 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'onboarded' => \App\Http\Middleware\EnsureOnboardingIsComplete::class,
         ]);
+        $middleware->appendToGroup('web', \App\Http\Middleware\LogUserActivity::class);
+        $middleware->appendToGroup('api', \App\Http\Middleware\LogUserActivity::class);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(

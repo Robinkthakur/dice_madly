@@ -159,13 +159,29 @@ class NotificationControllerTest extends TestCase
             'type' => 'premium',
         ]);
 
-        // 5. Index notifications endpoint test
+        // 5. Admin custom broadcast notification test
+        \App\Models\Notification::create([
+            'user_id' => $user1->id,
+            'title' => 'System Maintenance Broadcast',
+            'message' => 'Scheduled maintenance tonight at 2 AM UTC.',
+            'type' => 'broadcast',
+        ]);
+
+        // 6. Index notifications endpoint test with unread_count check
         $response = $this->getJson('/api/v1/notifications');
         $response->assertStatus(200)
             ->assertJsonPath('success', true);
         $this->assertNotEmpty($response->json('data'));
+        $this->assertGreaterThan(0, $response->json('pagination.unread_count'));
 
-        // 6. Mark single notification as read test
+        // 7. Index notifications with type filter (type=broadcast)
+        $response = $this->getJson('/api/v1/notifications?type=broadcast');
+        $response->assertStatus(200)
+            ->assertJsonPath('success', true);
+        $this->assertCount(1, $response->json('data'));
+        $this->assertEquals('System Maintenance Broadcast', $response->json('data.0.title'));
+
+        // 8. Mark single notification as read test
         $notification = $user1->notifications()->where('is_read', false)->first();
         $this->assertNotNull($notification);
 
@@ -174,12 +190,18 @@ class NotificationControllerTest extends TestCase
             ->assertJsonPath('success', true)
             ->assertJsonPath('data.is_read', true);
 
-        // 7. Mark all notifications as read test
+        // 9. Mark all notifications as read test
         $response = $this->putJson('/api/v1/notifications/read-all');
         $response->assertStatus(200)
             ->assertJsonPath('success', true);
 
         $unreadCount = $user1->notifications()->where('is_read', false)->count();
         $this->assertEquals(0, $unreadCount);
+
+        // 10. Filter unread_only should now return empty array
+        $response = $this->getJson('/api/v1/notifications?unread_only=1');
+        $response->assertStatus(200)
+            ->assertJsonPath('pagination.unread_count', 0);
+        $this->assertEmpty($response->json('data'));
     }
 }

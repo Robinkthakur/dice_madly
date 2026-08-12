@@ -73,10 +73,32 @@ class LoginController extends Controller
             ], 422);
         }
 
-        // Look up the user by email or phone
-        $user = User::where($type, $value)->first();
+        // Look up the user by email or phone, including soft-deleted users
+        $user = User::withTrashed()->where($type, $value)->first();
 
         if ($user) {
+            // Check if the user is soft-deleted
+            if ($user->trashed()) {
+                // If it has been deleted for more than 15 days, treat it as permanently deleted
+                if ($user->deleted_at->lt(now()->subDays(15))) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'This account has been permanently deleted.',
+                    ], 422);
+                }
+
+                // If within 15 days, restore and reactivate the account
+                $user->restore();
+                $user->update([
+                    'is_active' => true,
+                ]);
+            } elseif (!$user->is_active) {
+                // If deactivated, automatically reactivate the account
+                $user->update([
+                    'is_active' => true,
+                ]);
+            }
+
             // User exists, issue an access token
             $token = $user->createToken('auth_token')->plainTextToken;
 

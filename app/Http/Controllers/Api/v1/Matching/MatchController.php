@@ -150,6 +150,7 @@ class MatchController extends Controller
     public function profile(Request $request, $id): JsonResponse
     {
         $targetUser = User::where('id', $id)
+            ->where('is_active', true)
             ->where('onboarding_step', 'completed')
             ->firstOrFail();
 

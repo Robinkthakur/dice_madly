@@ -36,12 +36,12 @@ class UserResource extends JsonResource
                     str_starts_with($this->profile_image, 'http')
                         ? (
                             preg_match('/(profiles|id_proofs|selfies)\/[^\/]+$/', $this->profile_image, $matches)
-                                ? Storage::disk('public')->url($matches[0])
+                                ? asset(Storage::disk('public')->url($matches[0]))
                                 : $this->profile_image
                         )
-                        : Storage::disk('public')->url($this->profile_image)
+                        : asset(Storage::disk('public')->url($this->profile_image))
                 )
-                : null,
+                : url('/images/default-avatar.svg'),
             'onboarding_step' => $this->onboarding_step ?? 'bio_dp',
             'about_me' => $this->profile?->about_me,
             'qualification' => $this->relationLoaded('education') ? $this->education?->highest_qualification : ($this->education?->highest_qualification ?? null),
@@ -59,6 +59,8 @@ class UserResource extends JsonResource
                 : null,
             'created_at' => $this->created_at?->toIso8601String(),
             'updated_at' => $this->updated_at?->toIso8601String(),
+            'last_seen_at' => $this->last_seen_at?->toIso8601String(),
+            'is_online' => $this->is_online,
         ];
     }
 }

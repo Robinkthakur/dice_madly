@@ -25,7 +25,7 @@ class MessageResource extends JsonResource
                 ? (
                     str_starts_with($this->message, 'http')
                         ? $this->message
-                        : Storage::disk('public')->url($this->message)
+                        : asset(Storage::disk('public')->url($this->message))
                 )
                 : $this->message,
             'is_read' => (bool) $this->is_read,

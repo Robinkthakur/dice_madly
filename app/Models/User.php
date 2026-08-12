@@ -12,6 +12,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 use Laravel\Sanctum\HasApiTokens;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 
 #[Fillable([
     'profile_id',
@@ -26,6 +28,7 @@ use Laravel\Sanctum\HasApiTokens;
     'marital_status',
     'is_active',
     'is_verified',
+    'is_admin',
     'verified_until',
     'dob',
     'password',
@@ -33,12 +36,21 @@ use Laravel\Sanctum\HasApiTokens;
     'onboarding_step',
     'daily_rolls_count',
     'last_roll_date',
+    'last_seen_at',
 ])]
 #[Hidden(['password', 'remember_token'])]
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<UserFactory> */
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+
+    /**
+     * Determine if the user can access the Filament panel.
+     */
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return (bool) $this->is_admin;
+    }
 
     /**
      * Get the attributes that should be cast.
@@ -53,8 +65,10 @@ class User extends Authenticatable
             'dob' => 'date',
             'is_active' => 'boolean',
             'is_verified' => 'boolean',
+            'is_admin' => 'boolean',
             'verified_until' => 'datetime',
             'password' => 'hashed',
+            'last_seen_at' => 'datetime',
         ];
     }
 
@@ -144,11 +158,63 @@ class User extends Authenticatable
     }
 
     /**
+     * Determine if the user is currently online.
+     */
+    public function getIsOnlineAttribute(): bool
+    {
+        if (!$this->last_seen_at) {
+            return false;
+        }
+
+        return $this->last_seen_at->greaterThanOrEqualTo(now()->subMinutes(5));
+    }
+
+    /**
      * Get the user's notifications.
      */
     public function notifications()
     {
         return $this->hasMany(Notification::class);
+    }
+
+    /**
+     * Get the user's activity logs.
+     */
+    public function logs()
+    {
+        return $this->hasMany(UserLog::class);
+    }
+
+    /**
+     * Get the users blocked by this user.
+     */
+    public function blockedUsers()
+    {
+        return $this->hasMany(BlockedUser::class, 'user_id');
+    }
+
+    /**
+     * Get the users who blocked this user.
+     */
+    public function blockedBy()
+    {
+        return $this->hasMany(BlockedUser::class, 'blocked_user_id');
+    }
+
+    /**
+     * Get the visits to this user's profile.
+     */
+    public function profileVisits()
+    {
+        return $this->hasMany(ProfileVisit::class, 'visited_user_id');
+    }
+
+    /**
+     * Get the profile visits made by this user.
+     */
+    public function visitsMade()
+    {
+        return $this->hasMany(ProfileVisit::class, 'visitor_id');
     }
 
     /**

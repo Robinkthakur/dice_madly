@@ -16,9 +16,22 @@ class NotificationController extends Controller
     {
         $user = $request->user();
 
-        $notifications = $user->notifications()
-            ->orderBy('created_at', 'desc')
+        $query = $user->notifications();
+
+        // Optional filter by notification type (e.g., match, connect, like, broadcast, system, premium)
+        if ($request->has('type') && !empty($request->query('type'))) {
+            $query->where('type', $request->query('type'));
+        }
+
+        // Optional filter by unread status
+        if ($request->boolean('unread_only')) {
+            $query->where('is_read', false);
+        }
+
+        $notifications = $query->orderBy('created_at', 'desc')
             ->paginate(30);
+
+        $unreadCount = $user->notifications()->where('is_read', false)->count();
 
         return response()->json([
             'success' => true,
@@ -26,7 +39,9 @@ class NotificationController extends Controller
             'pagination' => [
                 'current_page' => $notifications->currentPage(),
                 'last_page' => $notifications->lastPage(),
+                'per_page' => $notifications->perPage(),
                 'total' => $notifications->total(),
+                'unread_count' => $unreadCount,
             ]
         ]);
     }

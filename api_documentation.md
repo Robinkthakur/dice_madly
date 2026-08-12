@@ -999,15 +999,28 @@ Update the user's profile picture. Deletes old avatar file if stored locally.
 ---
 
 ### 31. List Notifications
-Fetch a paginated list of notifications for the authenticated user, sorted by most recent.
+Fetch a paginated list of all notifications for the authenticated user (including new match requests, connection requests, custom admin broadcasts, likes, and premium updates), sorted by most recent.
 * **URL:** `GET /api/v1/notifications`
 * **Method:** `GET`
 * **Headers:** `Authorization: Bearer <token>`
+* **Query Parameters (Optional):**
+  * `type`: Filter by notification type (`broadcast`, `match`, `connect`, `like`, `premium`, `login`)
+  * `unread_only`: Filter unread notifications only (`1` or `true`)
 * **Response (Success - 200 OK):**
   ```json
   {
     "success": true,
     "data": [
+      {
+        "id": 5,
+        "user_id": 6,
+        "title": "System Announcement",
+        "message": "Scheduled maintenance tonight at 2 AM UTC.",
+        "type": "broadcast",
+        "is_read": false,
+        "created_at": "2026-06-11T11:25:00.000000Z",
+        "updated_at": "2026-06-11T11:25:00.000000Z"
+      },
       {
         "id": 4,
         "user_id": 6,
@@ -1032,7 +1045,9 @@ Fetch a paginated list of notifications for the authenticated user, sorted by mo
     "pagination": {
       "current_page": 1,
       "last_page": 1,
-      "total": 2
+      "per_page": 30,
+      "total": 3,
+      "unread_count": 3
     }
   }
   ```

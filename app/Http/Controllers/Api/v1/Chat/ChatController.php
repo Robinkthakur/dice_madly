@@ -30,7 +30,7 @@ class ChatController extends Controller
 
         $data = $rooms->map(function ($room) use ($user) {
             $otherUserId = $room->user_one === $user->id ? $room->user_two : $room->user_one;
-            $otherUser = User::find($otherUserId);
+            $otherUser = User::where('is_active', true)->find($otherUserId);
 
             $lastMessage = $room->messages->first();
 
