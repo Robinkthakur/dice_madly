@@ -9,9 +9,9 @@
     <div class="container">
         <div class="hero-grid">
             <div class="hero-content">
-                <div class="hero-pill">
-                    <span class="dot"></span>
-                    <span>The Next Generation Dating & Matrimony App</span>
+                <div class="hero-pill" style="background: #fff1f2; border: 1px solid #fecdd3; color: var(--primary);">
+                    <span class="dot" style="background: var(--primary);"></span>
+                    <span><strong>COMING SOON</strong> • Application in Building Phase</span>
                 </div>
 
                 <h1 class="hero-title">
@@ -19,11 +19,19 @@
                 </h1>
 
                 <p class="hero-desc">
-                    Skip the endless superficial swiping. Experience the thrill of fate with our unique <strong>Dice Roll matchmaking algorithm</strong>, connecting you with 100% selfie-verified singles based on genuine compatibility, values, and location.
+                    Skip the endless superficial swiping. We are engineering a revolutionary dating & matrimony experience with our unique <strong>Dice Roll matchmaking algorithm</strong>. Pre-register now to lock in 3 months of Free VIP access at launch!
                 </p>
 
-                <!-- Store Download Buttons -->
+                <!-- Store Download & Pre-Register Buttons -->
                 <div class="store-badges-group" id="download-app">
+                    <a href="{{ route('pre-register') }}" class="btn btn-primary" style="padding: 14px 24px; font-size: 1.05rem; font-weight: 700; box-shadow: var(--shadow-glow); display: inline-flex; align-items: center; gap: 10px;">
+                        <span>🎲 Pre-Register for Early VIP Access</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+
                     <a href="#download-android" class="store-btn" onclick="openDownloadModal('Google Play Store')">
                         <svg viewBox="0 0 512 512" fill="currentColor">
                             <path fill="#4285F4" d="M48.7 15.1c-4.4 4.8-7 12.3-7 21.6v438.6c0 9.3 2.6 16.8 7 21.6l1.2 1.1 245.4-245.4v-5.8L49.9 14l-1.2 1.1z"/>
@@ -32,7 +40,7 @@
                             <path fill="#34A853" d="M378.6 166.7L90 2.2C73-7.5 57.8-6.3 48.7 3.4L295.3 250l83.3-83.3z"/>
                         </svg>
                         <div class="store-btn-text">
-                            <span class="store-btn-sub">GET IT ON</span>
+                            <span class="store-btn-sub">COMING SOON ON</span>
                             <span class="store-btn-title">Google Play</span>
                         </div>
                     </a>
@@ -42,7 +50,7 @@
                             <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.08-7.66-7.87-11.9-14.37-6.2-9.5-11.1-20.73-14.7-33.68-3.6-12.95-5.4-24.84-5.4-35.67 0-14.52 3.9-26.47 11.71-35.85 7.8-9.37 17.58-14.16 29.34-14.37 4.13 0 9.02 1.13 14.68 3.38 5.65 2.25 9.27 3.43 10.87 3.52 2.18-.32 6.04-1.63 11.58-3.95 5.54-2.31 10.22-3.32 14.04-3.03 10.88.87 19.8 4.79 26.76 11.76 6.96 6.97 11.1 15.35 12.43 25.13-9.8 5.88-14.6 14.04-14.42 24.48.18 8.05 3.29 14.92 9.32 20.61 6.03 5.69 13.06 9.04 21.09 10.05-2.07 6.1-4.73 12.35-7.98 18.74zM119.22 33.31c0-6.75 2.39-13.01 7.18-18.79 4.79-5.77 10.78-9.58 17.97-11.43 1.09 6.75-.82 13.28-5.72 19.6-4.9 6.32-11.05 10.19-18.45 11.62-.32-.33-.65-.66-.98-1z"/>
                         </svg>
                         <div class="store-btn-text">
-                            <span class="store-btn-sub">Download on the</span>
+                            <span class="store-btn-sub">COMING SOON ON</span>
                             <span class="store-btn-title">App Store</span>
                         </div>
                     </a>
@@ -438,34 +446,19 @@
 <section class="cta-section">
     <div class="container">
         <div class="cta-banner">
-            <span class="hero-pill" style="margin-bottom: 16px;">
-                <span class="dot"></span> Join Over 100,000+ Verified Singles
+            <span class="hero-pill" style="margin-bottom: 16px; background: #fff1f2; border: 1px solid #fecdd3; color: var(--primary);">
+                <span class="dot" style="background: var(--primary);"></span> APP IN DEVELOPMENT • LAUNCHING SOON
             </span>
             <h2>Ready to Let Fate Find Your Match?</h2>
-            <p>Download Dice Madly today on Android and iOS. Your next great romance is just a dice roll away.</p>
+            <p>Dice Madly is currently in the active building phase for Android and iOS. Pre-register now to secure your <strong>VIP Founder status</strong> and get 3 months of free VIP access at launch!</p>
             
-            <div class="store-badges-group" style="justify-content: center;">
-                <a href="#download-android" class="store-btn" onclick="openDownloadModal('Google Play Store')">
-                    <svg viewBox="0 0 512 512" fill="currentColor" width="28" height="28">
-                        <path fill="#4285F4" d="M48.7 15.1c-4.4 4.8-7 12.3-7 21.6v438.6c0 9.3 2.6 16.8 7 21.6l1.2 1.1 245.4-245.4v-5.8L49.9 14l-1.2 1.1z"/>
-                        <path fill="#FBBC04" d="M377.2 334.4l-81.9-81.9v-5.8l81.9-81.9 1.4.8 97.1 55.2c27.7 15.8 27.7 41.5 0 57.3l-97.1 55.2-1.4 1.1z"/>
-                        <path fill="#EA4335" d="M378.6 333.3L295.3 250 48.7 496.6c9.1 9.7 24.3 10.9 41.3 1.2l288.6-164.5z"/>
-                        <path fill="#34A853" d="M378.6 166.7L90 2.2C73-7.5 57.8-6.3 48.7 3.4L295.3 250l83.3-83.3z"/>
+            <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 24px;">
+                <a href="{{ route('pre-register') }}" class="btn btn-primary" style="padding: 16px 32px; font-size: 1.1rem; font-weight: 700; box-shadow: var(--shadow-glow); display: inline-flex; align-items: center; gap: 10px;">
+                    <span>🎲 Pre-Register for Early VIP Access</span>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
-                    <div class="store-btn-text">
-                        <span class="store-btn-sub">GET IT ON</span>
-                        <span class="store-btn-title">Google Play</span>
-                    </div>
-                </a>
-
-                <a href="#download-ios" class="store-btn" onclick="openDownloadModal('Apple App Store')">
-                    <svg viewBox="0 0 170 170" fill="currentColor" width="28" height="28">
-                        <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.08-7.66-7.87-11.9-14.37-6.2-9.5-11.1-20.73-14.7-33.68-3.6-12.95-5.4-24.84-5.4-35.67 0-14.52 3.9-26.47 11.71-35.85 7.8-9.37 17.58-14.16 29.34-14.37 4.13 0 9.02 1.13 14.68 3.38 5.65 2.25 9.27 3.43 10.87 3.52 2.18-.32 6.04-1.63 11.58-3.95 5.54-2.31 10.22-3.32 14.04-3.03 10.88.87 19.8 4.79 26.76 11.76 6.96 6.97 11.1 15.35 12.43 25.13-9.8 5.88-14.6 14.04-14.42 24.48.18 8.05 3.29 14.92 9.32 20.61 6.03 5.69 13.06 9.04 21.09 10.05-2.07 6.1-4.73 12.35-7.98 18.74zM119.22 33.31c0-6.75 2.39-13.01 7.18-18.79 4.79-5.77 10.78-9.58 17.97-11.43 1.09 6.75-.82 13.28-5.72 19.6-4.9 6.32-11.05 10.19-18.45 11.62-.32-.33-.65-.66-.98-1z"/>
-                    </svg>
-                    <div class="store-btn-text">
-                        <span class="store-btn-sub">Download on the</span>
-                        <span class="store-btn-title">App Store</span>
-                    </div>
                 </a>
             </div>
         </div>
@@ -474,16 +467,17 @@
 
 <!-- Download Modal Dialog -->
 <div id="downloadModal" style="display: none; position: fixed; inset: 0; z-index: 999; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 20px;">
-    <div class="glass-panel" style="max-width: 460px; width: 100%; padding: 36px; text-align: center; position: relative; background: #ffffff; box-shadow: var(--shadow-elevated);">
+    <div class="glass-panel" style="max-width: 480px; width: 100%; padding: 36px; text-align: center; position: relative; background: #ffffff; box-shadow: var(--shadow-elevated);">
         <button onclick="closeDownloadModal()" style="position: absolute; top: 16px; right: 16px; background: transparent; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer;">&times;</button>
-        <div style="font-size: 3rem; margin-bottom: 12px;">📱</div>
-        <h3 id="modalStoreTitle" style="color: var(--text-primary); margin-bottom: 12px;">Get Dice Madly</h3>
-        <p style="font-size: 0.95rem; margin-bottom: 24px; color: var(--text-secondary);">
-            Dice Madly is currently rolling out on the official app stores. Scan the QR code with your smartphone or download the APK directly for early access.
+        <div style="font-size: 3rem; margin-bottom: 12px;">🚀</div>
+        <span class="section-tag" style="margin-bottom: 8px;">App in Building Phase</span>
+        <h3 id="modalStoreTitle" style="color: var(--text-primary); margin-bottom: 12px;">Coming Soon on App Stores</h3>
+        <p style="font-size: 0.95rem; margin-bottom: 24px; color: var(--text-secondary); line-height: 1.5;">
+            Our mobile apps are currently in active development. Pre-register now to be first to test the beta, receive immediate launch notification, and get <strong>3 months of Free VIP access</strong> on day one!
         </p>
         <div style="display: flex; flex-direction: column; gap: 12px;">
-            <a href="https://play.google.com/store/apps" target="_blank" class="btn btn-primary" style="width: 100%;">
-                Open in Store
+            <a href="{{ route('pre-register') }}" class="btn btn-primary" style="width: 100%; padding: 14px; font-weight: 700; font-size: 1rem;">
+                🎲 Pre-Register for Early VIP Access
             </a>
             <button onclick="closeDownloadModal()" class="btn btn-secondary" style="width: 100%;">Close</button>
         </div>

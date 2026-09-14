@@ -29,3 +29,9 @@ Route::get('/refund-policy', [PageController::class, 'refundPolicy'])->name('ref
 // Contact Us & Grievance Redressal
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::post('/contact', [PageController::class, 'submitContact'])->name('contact.submit');
+
+// Early Access & Pre-Registration (Before Launch)
+use App\Http\Controllers\Web\PreRegisterController;
+Route::get('/pre-register', [PreRegisterController::class, 'show'])->name('pre-register');
+Route::get('/early-access', [PreRegisterController::class, 'show']); // Alias
+Route::post('/pre-register', [PreRegisterController::class, 'store'])->name('pre-register.submit');

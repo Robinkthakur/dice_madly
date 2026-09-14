@@ -15,6 +15,7 @@ use App\Http\Controllers\Api\v1\Notification\NotificationController;
 use App\Http\Resources\Api\v1\UserResource;
 
 Route::prefix('v1')->group(function () {
+    Route::post('pre-register', [\App\Http\Controllers\Web\PreRegisterController::class, 'store']);
     Route::get('interests', [ProfileSetupController::class, 'listInterestOptions']);
     Route::get('plans', [PaymentController::class, 'plans']);
 
