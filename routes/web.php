@@ -35,3 +35,11 @@ use App\Http\Controllers\Web\PreRegisterController;
 Route::get('/pre-register', [PreRegisterController::class, 'show'])->name('pre-register');
 Route::get('/early-access', [PreRegisterController::class, 'show']); // Alias
 Route::post('/pre-register', [PreRegisterController::class, 'store'])->name('pre-register.submit');
+
+// Rent Boyfriend or Girlfriend Survey & Partner Registration
+use App\Http\Controllers\Web\CompanionRentalController;
+Route::get('/rent-partner', [CompanionRentalController::class, 'show'])->name('rent-companion');
+Route::get('/rent-companion', [CompanionRentalController::class, 'show']); // Alias
+Route::get('/rent-boyfriend-girlfriend', [CompanionRentalController::class, 'show']); // Alias
+Route::post('/rent-partner', [CompanionRentalController::class, 'store'])->name('rent-companion.submit');
+

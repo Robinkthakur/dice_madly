@@ -48,10 +48,9 @@
                     <li><a href="{{ route('home') }}#features" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Features</a></li>
                     <li><a href="{{ route('home') }}#how-it-works" class="nav-link">How It Works</a></li>
                     <li><a href="{{ route('home') }}#safety" class="nav-link">Safety Pledge</a></li>
+                    <li><a href="{{ route('rent-companion') }}" class="nav-link {{ request()->routeIs('rent-companion*') ? 'active' : '' }}" style="color: #be123c; font-weight: 700;">Rent Companion 💖</a></li>
                     <li><a href="{{ route('pre-register') }}" class="nav-link {{ request()->routeIs('pre-register') ? 'active' : '' }}" style="color: var(--primary); font-weight: 700;">Pre-Register ✨</a></li>
                     <li><a href="{{ route('home') }}#faq" class="nav-link">FAQ</a></li>
-                    <li><a href="{{ route('privacy') }}" class="nav-link {{ request()->routeIs('privacy') ? 'active' : '' }}">Privacy</a></li>
-                    <li><a href="{{ route('terms') }}" class="nav-link {{ request()->routeIs('terms') ? 'active' : '' }}">Terms</a></li>
                 </ul>
 
                 <div class="nav-actions">
@@ -78,6 +77,9 @@
                     <span style="font-size: 0.75rem; font-weight: 800; color: var(--primary); background: #fff1f2; padding: 3px 10px; border-radius: var(--radius-full); border: 1px solid #fecdd3;">APP IN DEVELOPMENT • COMING SOON</span>
                 </div>
                 <a href="{{ route('home') }}" style="color: var(--text-primary); font-weight: 700; padding: 6px 0;">Home</a>
+                <a href="{{ route('rent-companion') }}" style="color: #be123c; font-weight: 700; padding: 6px 0; display: flex; align-items: center; gap: 6px;">
+                    <span>💖 Rent BF/GF & Partner Registration</span>
+                </a>
                 <a href="{{ route('pre-register') }}" style="color: var(--primary); font-weight: 700; padding: 6px 0; display: flex; align-items: center; gap: 6px;">
                     <span>🎲 Pre-Register (Early VIP Access)</span>
                 </a>
@@ -86,9 +88,6 @@
                 <a href="{{ route('home') }}#safety" style="color: var(--text-secondary); padding: 6px 0;">Safety & KYC</a>
                 <a href="{{ route('home') }}#faq" style="color: var(--text-secondary); padding: 6px 0;">FAQ</a>
                 <div style="height: 1px; background: var(--border-subtle); margin: 6px 0;"></div>
-                <a href="{{ route('privacy') }}" style="color: var(--text-secondary); padding: 6px 0;">Privacy Policy</a>
-                <a href="{{ route('terms') }}" style="color: var(--text-secondary); padding: 6px 0;">Terms of Service</a>
-                <a href="{{ route('delete-account') }}" style="color: #dc2626; padding: 6px 0; font-weight: 600;">Account & Data Deletion</a>
                 <a href="{{ route('contact') }}" style="color: var(--text-secondary); padding: 6px 0;">Contact Support</a>
                 <a href="{{ route('pre-register') }}" class="btn btn-primary" style="margin-top: 10px; width: 100%;">Pre-Register For Early Access</a>
             </div>
@@ -124,11 +123,12 @@
                     <h5>Discover</h5>
                     <ul class="footer-links">
                         <li><a href="{{ route('pre-register') }}" style="color: var(--primary); font-weight: 600;">✨ Pre-Register (Coming Soon)</a></li>
+                        <li><a href="{{ route('rent-companion') }}" style="color: #be123c; font-weight: 600;">💖 Rent Boyfriend or Girlfriend</a></li>
+                        <li><a href="{{ route('rent-companion', ['mode' => 'partner']) }}">💼 Become a Rental Partner</a></li>
                         <li><a href="{{ route('home') }}#features">Dice Matchmaking</a></li>
                         <li><a href="{{ route('home') }}#how-it-works">How It Works</a></li>
                         <li><a href="{{ route('home') }}#safety">Safety & KYC Verification</a></li>
                         <li><a href="{{ route('home') }}#faq">Frequently Asked Questions</a></li>
-                        <li><a href="{{ route('pre-register') }}">Download / Early Access</a></li>
                     </ul>
                 </div>
 
@@ -137,7 +137,7 @@
                     <ul class="footer-links">
                         <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
                         <li><a href="{{ route('terms') }}">Terms of Service</a></li>
-                        <li><a href="{{ route('delete-account') }}">Account & Data Deletion</a></li>
+                        {{-- <li><a href="{{ route('delete-account') }}">Account & Data Deletion</a></li> --}}
                         <li><a href="{{ route('community-guidelines') }}">Community Guidelines</a></li>
                         <li><a href="{{ route('refund-policy') }}">Refund Policy</a></li>
                     </ul>
@@ -150,7 +150,7 @@
                         <li><a href="{{ route('contact') }}">Grievance Officer</a></li>
                         <li><a href="mailto:support@dicemadly.com">support@dicemadly.com</a></li>
                         <li><a href="mailto:privacy@dicemadly.com">privacy@dicemadly.com</a></li>
-                        <li><a href="{{ route('delete-account') }}" style="color: #dc2626; font-weight: 600;">Request Account Deletion</a></li>
+                        {{-- <li><a href="{{ route('delete-account') }}" style="color: #dc2626; font-weight: 600;">Request Account Deletion</a></li> --}}
                     </ul>
                 </div>
             </div>
@@ -162,7 +162,7 @@
                 <div style="display: flex; gap: 20px;">
                     <a href="{{ route('privacy') }}" style="color: var(--text-muted); font-size: 0.85rem;">Privacy</a>
                     <a href="{{ route('terms') }}" style="color: var(--text-muted); font-size: 0.85rem;">Terms</a>
-                    <a href="{{ route('delete-account') }}" style="color: var(--text-muted); font-size: 0.85rem;">Data Safety</a>
+                    {{-- <a href="{{ route('delete-account') }}" style="color: var(--text-muted); font-size: 0.85rem;">Data Safety</a> --}}
                     <a href="{{ route('contact') }}" style="color: var(--text-muted); font-size: 0.85rem;">Contact</a>
                 </div>
             </div>

@@ -425,7 +425,7 @@
                     <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    You have complete control over your data. You can delete your account at any time directly in the mobile app via <strong>Settings &gt; Delete Account</strong>, or via our web portal at <a href="{{ route('delete-account') }}">dicemadly.com/delete-account</a> without needing the app installed.
+                    You have complete control over your data. You can delete your account at any time directly in the mobile app via <strong>Settings &gt; Delete Account</strong>, or reach out to our privacy team at <a href="mailto:privacy@dicemadly.com">privacy@dicemadly.com</a>.
                 </div>
             </div>
 
