@@ -55,8 +55,8 @@
 
                 <div class="nav-actions">
                     <a href="{{ route('pre-register') }}" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 0.68rem; padding: 2px 7px; border-radius: 99px; background: rgba(255,255,255,0.25); text-transform: uppercase; font-weight: 800; letter-spacing: 0.04em;">Coming Soon</span>
-                        <span>Pre-Register</span>
+                        <!-- <span style="font-size: 0.68rem; padding: 2px 7px; border-radius: 99px; background: rgba(255,255,255,0.25); text-transform: uppercase; font-weight: 800; letter-spacing: 0.04em;">Launching in Bangalore</span> -->
+                        <span>Pre-Register Now</span>
                     </a>
 
                     <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation">
@@ -74,14 +74,14 @@
         <div id="mobileDrawer" style="display: none; background: #ffffff; border-bottom: 1px solid var(--border-subtle); padding: 20px 24px; box-shadow: var(--shadow-elevated);">
             <div style="display: flex; flex-direction: column; gap: 14px;">
                 <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 8px; border-bottom: 1px solid var(--border-subtle);">
-                    <span style="font-size: 0.75rem; font-weight: 800; color: var(--primary); background: #fff1f2; padding: 3px 10px; border-radius: var(--radius-full); border: 1px solid #fecdd3;">APP IN DEVELOPMENT • COMING SOON</span>
+                    <span style="font-size: 0.75rem; font-weight: 800; color: var(--primary); background: #fff1f2; padding: 3px 10px; border-radius: var(--radius-full); border: 1px solid #fecdd3;">🚀 LAUNCHING INITIALLY IN BANGALORE • COMING SOON</span>
                 </div>
                 <a href="{{ route('home') }}" style="color: var(--text-primary); font-weight: 700; padding: 6px 0;">Home</a>
                 <a href="{{ route('rent-companion') }}" style="color: #be123c; font-weight: 700; padding: 6px 0; display: flex; align-items: center; gap: 6px;">
                     <span>💖 Rent BF/GF & Partner Registration</span>
                 </a>
                 <a href="{{ route('pre-register') }}" style="color: var(--primary); font-weight: 700; padding: 6px 0; display: flex; align-items: center; gap: 6px;">
-                    <span>🎲 Pre-Register (Early VIP Access)</span>
+                    <span>🎲 Pre-Register</span>
                 </a>
                 <a href="{{ route('home') }}#features" style="color: var(--text-secondary); padding: 6px 0;">Features</a>
                 <a href="{{ route('home') }}#how-it-works" style="color: var(--text-secondary); padding: 6px 0;">How It Works</a>
@@ -89,7 +89,7 @@
                 <a href="{{ route('home') }}#faq" style="color: var(--text-secondary); padding: 6px 0;">FAQ</a>
                 <div style="height: 1px; background: var(--border-subtle); margin: 6px 0;"></div>
                 <a href="{{ route('contact') }}" style="color: var(--text-secondary); padding: 6px 0;">Contact Support</a>
-                <a href="{{ route('pre-register') }}" class="btn btn-primary" style="margin-top: 10px; width: 100%;">Pre-Register For Early Access</a>
+                <a href="{{ route('pre-register') }}" class="btn btn-primary" style="margin-top: 10px; width: 100%;">Pre-Register</a>
             </div>
         </div>
     </header>
@@ -110,7 +110,7 @@
                         @else
                             <div class="dice-icon-badge">🎲</div>
                         @endif
-                        <span>DICE <span>MADLY</span></span>
+        
                     </a>
                     <p>Where fate meets genuine connection. Experience the thrill of serendipitous matchmaking, verified profiles, and safe dating & matrimony.</p>
                     <div style="display: flex; gap: 12px; margin-top: 20px;">
@@ -122,7 +122,7 @@
                 <div class="footer-column">
                     <h5>Discover</h5>
                     <ul class="footer-links">
-                        <li><a href="{{ route('pre-register') }}" style="color: var(--primary); font-weight: 600;">✨ Pre-Register (Coming Soon)</a></li>
+                        <li><a href="{{ route('pre-register') }}" style="color: var(--primary); font-weight: 600;">✨ Pre-Register (Launching in Bangalore)</a></li>
                         <li><a href="{{ route('rent-companion') }}" style="color: #be123c; font-weight: 600;">💖 Rent Boyfriend or Girlfriend</a></li>
                         <li><a href="{{ route('rent-companion', ['mode' => 'partner']) }}">💼 Become a Rental Partner</a></li>
                         <li><a href="{{ route('home') }}#features">Dice Matchmaking</a></li>

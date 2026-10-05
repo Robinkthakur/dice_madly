@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Pre-Register for Early Access - ' . config('app.name', 'Dice Madly') . ' (Coming Soon)')
-@section('meta_description', 'Dice Madly is launching soon! Pre-register today for early VIP access, free premium perks, and be among the first to experience serendipitous dice roll matchmaking.')
+@section('title', 'Pre-Register - ' . config('app.name', 'Dice Madly'))
+@section('meta_description', 'Dice Madly is launching soon! Pre-register today and be among the first to experience serendipitous dice roll matchmaking.')
 
 @section('content')
 @push('styles')
@@ -50,13 +50,13 @@
     <div class="container" style="max-width: 800px; margin: 0 auto;">
         <span class="policy-badge" style="background: #fff1f2; border-color: #fecdd3; color: var(--primary); font-weight: 700; margin-bottom: 16px; display: inline-flex; align-items: center; gap: 8px;">
             <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--primary); display: inline-block; animation: pulse 2s infinite;"></span>
-            APP IN DEVELOPMENT • COMING SOON
+            📍 LAUNCHING INITIALLY IN BANGALORE • COMING SOON
         </span>
         <h1 style="font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.15; margin-bottom: 16px;">
             Be First In Line For <span class="gradient-text">True Connection</span>.
         </h1>
         <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6; max-width: 640px; margin: 0 auto 24px;">
-            Dice Madly is currently in active development. Pre-register your spot today to secure exclusive <strong>VIP Founder Perks</strong> and get notified the moment we go live on the App Store & Google Play.
+            Dice Madly is currently in active development, launching initially in <strong>Bangalore</strong>. Pre-register your spot today to secure exclusive <strong>Founder Perks</strong> and get notified the moment we go live on the App Store & Google Play.
         </p>
 
         <!-- Social Proof Stats -->
@@ -89,16 +89,6 @@
                 </div>
 
                 <div style="display: flex; flex-direction: column; gap: 18px; margin-top: 20px;">
-                    <div style="display: flex; gap: 14px; align-items: flex-start;">
-                        <div style="width: 36px; height: 36px; border-radius: 10px; background: #fff1f2; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; color: var(--primary); font-weight: bold;">
-                            👑
-                        </div>
-                        <div>
-                            <strong style="color: var(--text-primary); font-size: 0.95rem; display: block;">3 Months Free VIP Subscription</strong>
-                            <span style="font-size: 0.85rem; color: var(--text-secondary);">Unlimited profile visits, high-priority chat unlocks, and zero ads on day one.</span>
-                        </div>
-                    </div>
-
                     <div style="display: flex; gap: 14px; align-items: flex-start;">
                         <div style="width: 36px; height: 36px; border-radius: 10px; background: #ecfdf5; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; color: var(--accent-green); font-weight: bold;">
                             🎲
@@ -152,7 +142,7 @@
                         <div style="display: flex; gap: 12px; align-items: flex-start;">
                             <span style="font-size: 1.5rem;">ℹ️</span>
                             <div>
-                                <h4 style="margin: 0 0 4px; color: #1e40af; font-size: 1.05rem;">You're Already On The VIP List!</h4>
+                                <h4 style="margin: 0 0 4px; color: #1e40af; font-size: 1.05rem;">You're Already Pre-Registered!</h4>
                                 <p style="margin: 0; font-size: 0.9rem; color: #1e3a8a; line-height: 1.5;">
                                     {{ session('info_notice')['message'] }}
                                 </p>
@@ -178,13 +168,13 @@
                         </div>
 
                         <p style="font-size: 0.85rem; color: #065f46; margin: 0;">
-                            A confirmation note has been scheduled for <strong>{{ session('pre_register_success')['email'] }}</strong>. Keep your ticket code safe to claim your 3 months of free VIP access at launch!
+                            A confirmation note has been scheduled for <strong>{{ session('pre_register_success')['email'] }}</strong>. Keep your ticket code safe for official launch updates!
                         </p>
                     </div>
                 @endif
 
                 <div style="margin-bottom: 22px;">
-                    <span class="section-tag" style="margin-bottom: 6px;">Early Access Registration</span>
+                    <span class="section-tag" style="margin-bottom: 6px;">Pre-Register</span>
                     <h2 style="font-size: 1.6rem; margin-bottom: 8px;">Claim Your Founder Spot</h2>
                     <p style="font-size: 0.9rem; color: var(--text-secondary); margin: 0;">
                         Takes under 30 seconds. No credit card required.
@@ -235,7 +225,7 @@
                                value="{{ old('email') }}" 
                                required>
                         <span style="font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; display: block;">
-                            We will send your VIP launch key to this address.
+                            We will send your launch key to this address.
                         </span>
                         @error('email')
                             <div class="form-error">{{ $message }}</div>
@@ -308,8 +298,11 @@
                                id="city" 
                                name="city" 
                                class="form-input @error('city') is-invalid @enderror" 
-                               placeholder="e.g. Mumbai, Delhi, Bengaluru, London..." 
+                               placeholder="e.g. Bangalore / Bengaluru (Initial Launch City), Delhi, Mumbai..." 
                                value="{{ old('city') }}">
+                        <div style="font-size: 0.76rem; color: var(--primary); margin-top: 5px; font-weight: 600;">
+                            📍 Priority early access onboarding for Bangalore / Bengaluru residents!
+                        </div>
                         @error('city')
                             <div class="form-error">{{ $message }}</div>
                         @enderror
@@ -361,7 +354,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                        <span>🎲 Pre-Register For Early Access</span>
+                        <span>🎲 Pre-Register</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                             <polyline points="12 5 19 12 12 19"></polyline>

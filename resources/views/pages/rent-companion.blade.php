@@ -490,13 +490,13 @@
         <!-- Header Introduction -->
         <div style="text-align: center; max-width: 780px; margin: 0 auto 36px;">
             <div class="rent-badge">
-                <span>✨ Official Companion & Social Partner Survey</span>
+                <span>🚀 Official Companion & Partner Survey • Launching Initially in Bangalore</span>
             </div>
             <h1 class="rent-header-title">
                 Rent a <span class="gradient-text">Boyfriend</span> or <span class="gradient-text">Girlfriend</span>
             </h1>
             <p class="rent-header-subtitle">
-                Looking for a charming date for an event, dinner, cafe outing, or friendly conversation? Or register as a verified companion partner and provide safe, respectful rental services.
+                Looking for a charming date for an event, dinner, cafe outing, or friendly conversation? Or register as a verified companion partner in <strong>Bangalore</strong> to provide safe, respectful rental services.
             </p>
         </div>
 
@@ -686,7 +686,7 @@
 
                         <div class="form-group">
                             <label for="inputCity">City / Location</label>
-                            <input type="text" name="city" id="inputCity" class="form-control" placeholder="e.g. Mumbai, Delhi, Bangalore" value="{{ old('city') }}" maxlength="100">
+                            <input type="text" name="city" id="inputCity" class="form-control" placeholder="e.g. Bangalore / Bengaluru (Initial Launch City)" value="{{ old('city') }}" maxlength="100">
                         </div>
                     </div>
 

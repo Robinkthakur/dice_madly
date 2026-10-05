@@ -11,7 +11,7 @@
             <div class="hero-content">
                 <div class="hero-pill" style="background: #fff1f2; border: 1px solid #fecdd3; color: var(--primary);">
                     <span class="dot" style="background: var(--primary);"></span>
-                    <span><strong>COMING SOON</strong> • Application in Building Phase</span>
+                    <span>🚀 <strong>LAUNCHING INITIALLY IN BANGALORE</strong> • Pre-Register Now</span>
                 </div>
 
                 <h1 class="hero-title">
@@ -19,13 +19,13 @@
                 </h1>
 
                 <p class="hero-desc">
-                    Skip the endless superficial swiping. We are engineering a revolutionary dating & matrimony experience with our unique <strong>Dice Roll matchmaking algorithm</strong>. Pre-register now to lock in 3 months of Free VIP access at launch!
+                    Skip the endless superficial swiping. We are engineering a revolutionary dating & matrimony experience with our unique <strong>Dice Roll matchmaking algorithm</strong>, launching initially in <strong>Bangalore</strong>. Pre-register now to be among the first to experience Dice Madly at launch!
                 </p>
 
                 <!-- Store Download & Pre-Register Buttons -->
                 <div class="store-badges-group" id="download-app">
                     <a href="{{ route('pre-register') }}" class="btn btn-primary" style="padding: 14px 24px; font-size: 1.05rem; font-weight: 700; box-shadow: var(--shadow-glow); display: inline-flex; align-items: center; gap: 10px;">
-                        <span>🎲 Pre-Register for Early VIP Access</span>
+                        <span>🎲 Pre-Register</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                             <polyline points="12 5 19 12 12 19"></polyline>
@@ -447,14 +447,14 @@
     <div class="container">
         <div class="cta-banner">
             <span class="hero-pill" style="margin-bottom: 16px; background: #fff1f2; border: 1px solid #fecdd3; color: var(--primary);">
-                <span class="dot" style="background: var(--primary);"></span> APP IN DEVELOPMENT • LAUNCHING SOON
+                <span class="dot" style="background: var(--primary);"></span> 📍 LAUNCHING INITIALLY IN BANGALORE • COMING SOON
             </span>
             <h2>Ready to Let Fate Find Your Match?</h2>
-            <p>Dice Madly is currently in the active building phase for Android and iOS. Pre-register now to secure your <strong>VIP Founder status</strong> and get 3 months of free VIP access at launch!</p>
+            <p>Dice Madly is currently in the active building phase, rolling out initially for singles in <strong>Bangalore</strong>. Pre-register now to reserve your spot and receive immediate launch notifications on day one!</p>
             
             <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 24px;">
                 <a href="{{ route('pre-register') }}" class="btn btn-primary" style="padding: 16px 32px; font-size: 1.1rem; font-weight: 700; box-shadow: var(--shadow-glow); display: inline-flex; align-items: center; gap: 10px;">
-                    <span>🎲 Pre-Register for Early VIP Access</span>
+                    <span>🎲 Pre-Register</span>
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <polyline points="12 5 19 12 12 19"></polyline>
@@ -470,14 +470,14 @@
     <div class="glass-panel" style="max-width: 480px; width: 100%; padding: 36px; text-align: center; position: relative; background: #ffffff; box-shadow: var(--shadow-elevated);">
         <button onclick="closeDownloadModal()" style="position: absolute; top: 16px; right: 16px; background: transparent; border: none; color: var(--text-muted); font-size: 1.5rem; cursor: pointer;">&times;</button>
         <div style="font-size: 3rem; margin-bottom: 12px;">🚀</div>
-        <span class="section-tag" style="margin-bottom: 8px;">App in Building Phase</span>
+        <span class="section-tag" style="margin-bottom: 8px;">Launching Initially in Bangalore</span>
         <h3 id="modalStoreTitle" style="color: var(--text-primary); margin-bottom: 12px;">Coming Soon on App Stores</h3>
         <p style="font-size: 0.95rem; margin-bottom: 24px; color: var(--text-secondary); line-height: 1.5;">
-            Our mobile apps are currently in active development. Pre-register now to be first to test the beta, receive immediate launch notification, and get <strong>3 months of Free VIP access</strong> on day one!
+            Our mobile apps are currently in active development, with priority launch rollout in <strong>Bangalore</strong>. Pre-register now to be first to test the beta and receive immediate launch notification on day one!
         </p>
         <div style="display: flex; flex-direction: column; gap: 12px;">
             <a href="{{ route('pre-register') }}" class="btn btn-primary" style="width: 100%; padding: 14px; font-weight: 700; font-size: 1rem;">
-                🎲 Pre-Register for Early VIP Access
+                🎲 Pre-Register
             </a>
             <button onclick="closeDownloadModal()" class="btn btn-secondary" style="width: 100%;">Close</button>
         </div>

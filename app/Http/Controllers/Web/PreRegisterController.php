@@ -39,7 +39,7 @@ class PreRegisterController extends Controller
                 return response()->json([
                     'success' => true,
                     'already_registered' => true,
-                    'message' => 'Great news! You are already on our early access VIP list. We will notify you the moment Dice Madly launches.',
+                    'message' => 'Great news! You are already on our pre-registration list. We will notify you the moment Dice Madly launches in Bangalore.',
                     'data' => [
                         'name' => $existing->name,
                         'email' => $existing->email,
@@ -52,7 +52,7 @@ class PreRegisterController extends Controller
                 'name' => $existing->name,
                 'email' => $existing->email,
                 'ticket' => $existing->vip_ticket,
-                'message' => "You're already registered! We have your email ({$existing->email}) safely stored on our VIP early access list (Ticket: " . ($existing->vip_ticket ?? 'Active') . "). Watch your inbox for exclusive launch bonuses!",
+                'message' => "You're already registered! We have your email ({$existing->email}) safely stored on our pre-registration list (Ticket: " . ($existing->vip_ticket ?? 'Active') . "). Watch your inbox for official launch updates!",
             ]);
         }
 
@@ -102,7 +102,7 @@ class PreRegisterController extends Controller
         if ($request->expectsJson()) {
             return response()->json([
                 'success' => true,
-                'message' => 'Congratulations! You are officially on the Dice Madly early access VIP list.',
+                'message' => 'Congratulations! You are officially pre-registered for Dice Madly.',
                 'data' => [
                     'id' => $entry->id,
                     'name' => $entry->name,
@@ -117,7 +117,7 @@ class PreRegisterController extends Controller
             'email' => $entry->email,
             'ticket' => $entry->vip_ticket,
             'platform' => ucfirst($entry->preferred_platform),
-            'message' => "Welcome aboard, {$entry->name}! You have successfully reserved your spot on the Dice Madly VIP list.",
+            'message' => "Welcome aboard, {$entry->name}! You have successfully reserved your pre-registration spot on Dice Madly.",
         ]);
     }
 }
