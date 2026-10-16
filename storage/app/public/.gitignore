@@ -1,2 +1,5 @@
 *
 !.gitignore
+!profiles/
+!profiles/**
+.DS_Store
