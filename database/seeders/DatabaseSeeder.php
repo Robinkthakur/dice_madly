@@ -17,21 +17,21 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'first_name' => 'Test',
-            'last_name' => 'User',
-            'email' => 'test@example.com',
-            'is_admin' => true,
-        ]);
+        // User::factory()->create([
+        //     'first_name' => 'Test',
+        //     'last_name' => 'User',
+        //     'email' => 'test@example.com',
+        //     'is_admin' => true,
+        // ]);
 
-        \App\Models\Admin::updateOrCreate(
-            ['email' => 'admin@dicemadly.com'],
-            [
-                'name' => 'Super Admin',
-                'password' => bcrypt('admin123'), // admin123
-                'role' => 'Super Admin',
-            ]
-        );
+        // \App\Models\Admin::updateOrCreate(
+        //     ['email' => 'admin@dicemadly.com'],
+        //     [
+        //         'name' => 'Super Admin',
+        //         'password' => bcrypt('admin123'), // admin123
+        //         'role' => 'Super Admin',
+        //     ]
+        // );
 
         // Copy available unsplash images to 1.jpg ... 50.jpg in the storage folder
         $profilesDir = storage_path('app/public/profiles');
