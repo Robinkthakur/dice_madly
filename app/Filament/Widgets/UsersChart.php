@@ -30,7 +30,9 @@ class UsersChart extends ChartWidget
                 [
                     'label' => 'New Registrations',
                     'data' => $data,
-                    'borderColor' => '#fc144c', // Violet matching our primary brand color
+                    'borderColor' => '#e11d48',
+                    'backgroundColor' => 'rgba(225, 29, 72, 0.1)',
+                    'fill' => true,
                 ],
             ],
             'labels' => $months,

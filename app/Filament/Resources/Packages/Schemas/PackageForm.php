@@ -23,7 +23,7 @@ class PackageForm
                                     ->unique(ignoreRecord: true),
                                 TextInput::make('price')
                                     ->numeric()
-                                    ->prefix('$')
+                                    ->prefix('₹')
                                     ->required(),
                                 TextInput::make('duration_days')
                                     ->label('Duration (Days)')

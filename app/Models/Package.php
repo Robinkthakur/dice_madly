@@ -29,4 +29,19 @@ class Package extends Model
         'chat_access' => 'boolean',
         'view_contact' => 'boolean',
     ];
+
+    protected $appends = [
+        'currency',
+        'formatted_price',
+    ];
+
+    public function getCurrencyAttribute(): string
+    {
+        return 'INR';
+    }
+
+    public function getFormattedPriceAttribute(): string
+    {
+        return '₹' . number_format((float) ($this->price ?? 0), 2);
+    }
 }

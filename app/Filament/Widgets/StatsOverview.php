@@ -15,6 +15,8 @@ class StatsOverview extends StatsOverviewWidget
 
     protected function getStats(): array
     {
+        $paidRevenue = \App\Models\Payment::where('status', 'Paid')->sum('amount');
+
         return [
             Stat::make('Total Users', User::count())
                 ->description('Total registered users')
@@ -24,6 +26,10 @@ class StatsOverview extends StatsOverviewWidget
                 ->description('Active user accounts')
                 ->descriptionIcon('heroicon-m-check-badge')
                 ->color('success'),
+            Stat::make('Total Revenue', '₹' . number_format($paidRevenue, 2))
+                ->description('Paid transactions')
+                ->descriptionIcon('heroicon-m-banknotes')
+                ->color('primary'),
             Stat::make('Pending Verifications', Verification::where('status', 'Pending')->count())
                 ->description('Awaiting document review')
                 ->descriptionIcon('heroicon-m-shield-check')

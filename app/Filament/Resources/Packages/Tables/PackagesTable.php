@@ -23,7 +23,7 @@ class PackagesTable
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('price')
-                    ->money('USD')
+                    ->money('INR')
                     ->sortable(),
                 TextColumn::make('duration_days')
                     ->label('Duration')

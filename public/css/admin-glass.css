@@ -1,127 +1,195 @@
-/* Glassmorphism & Gradient Light Theme for Filament Panel */
+/* ==========================================================================
+   Dice Madly - Luxury Modern Admin Theme
+   Modern Glass & Clean Elevation with Brand Rose / Crimson Accents
+   ========================================================================== */
 
-/* Custom fonts & global overrides */
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* Global Body & Canvas */
 body.fi-body {
-    background: radial-gradient(circle at 10% 20%, rgba(252, 20, 76, 0.05) 0%, transparent 45%),
-                radial-gradient(circle at 90% 80%, rgba(120, 20, 252, 0.05) 0%, transparent 45%),
+    background: radial-gradient(circle at 10% 10%, rgba(225, 29, 72, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(99, 102, 241, 0.04) 0%, transparent 40%),
                 #f8fafc !important;
     background-attachment: fixed !important;
-    color: #1e293b !important;
-    font-family: 'Outfit', sans-serif !important;
+    color: #0f172a !important;
+    font-family: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Translucent & Glassy Sidebar */
+/* Translucent Premium Sidebar */
 aside.fi-sidebar {
-    background: rgba(255, 255, 255, 0.7) !important;
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-right: 1px solid rgba(226, 232, 240, 0.8) !important;
+    box-shadow: 4px 0 24px -2px rgba(15, 23, 42, 0.03) !important;
+}
+
+/* Sidebar Navigation Items */
+.fi-sidebar-item-btn {
+    border-radius: 10px !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    font-weight: 500 !important;
+}
+
+.fi-sidebar-item-btn:hover {
+    background-color: rgba(225, 29, 72, 0.06) !important;
+    color: #e11d48 !important;
+}
+
+.fi-sidebar-item-active .fi-sidebar-item-btn {
+    background: linear-gradient(135deg, rgba(225, 29, 72, 0.12) 0%, rgba(244, 63, 94, 0.08) 100%) !important;
+    color: #e11d48 !important;
+    font-weight: 600 !important;
+    border: 1px solid rgba(225, 29, 72, 0.2) !important;
+    box-shadow: 0 2px 8px rgba(225, 29, 72, 0.08) !important;
+}
+
+.fi-sidebar-group-label {
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+    font-size: 0.72rem !important;
+    font-weight: 700 !important;
+    color: #94a3b8 !important;
+}
+
+/* Topbar Header */
+header.fi-topbar {
+    background: rgba(255, 255, 255, 0.8) !important;
     backdrop-filter: blur(16px) !important;
     -webkit-backdrop-filter: blur(16px) !important;
-    border-right: 1px solid rgba(0, 0, 0, 0.05) !important;
-    box-shadow: 4px 0 24px rgba(148, 163, 184, 0.08) !important;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8) !important;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.02) !important;
 }
 
-/* Glassy Topbar */
-header.fi-topbar {
-    background: rgba(255, 255, 255, 0.7) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
-}
-
-/* Glassmorphic Cards, Sections, and Widgets */
-.fi-section, 
-.fi-ta-ctn, 
-.fi-wi-widget,
-.fi-wi-stats-overview-stat {
-    background: rgba(255, 255, 255, 0.6) !important;
-    backdrop-filter: blur(14px) !important;
-    -webkit-backdrop-filter: blur(14px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+/* Main Dashboard Cards, Sections & Widgets */
+.fi-section,
+.fi-ta-ctn,
+.fi-wi-widget {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(226, 232, 240, 0.9) !important;
     border-radius: 16px !important;
-    box-shadow: 0 8px 32px 0 rgba(148, 163, 184, 0.06) !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02) !important;
+    overflow: hidden !important;
 }
 
-/* Card Hovers */
-.fi-section:hover, 
-.fi-wi-stats-overview-stat:hover, 
-.fi-ta-ctn:hover {
-    transform: translateY(-2px);
-    border-color: rgba(252, 20, 76, 0.2) !important;
-    box-shadow: 0 12px 40px 0 rgba(252, 20, 76, 0.06) !important;
+/* Dashboard Stats Overview Cards */
+.fi-wi-stats-overview-stat {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(226, 232, 240, 0.9) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04) !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Inputs & Form Fields */
-.fi-fo-text-input input, 
-.fi-fo-select select, 
+.fi-wi-stats-overview-stat:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 28px -4px rgba(225, 29, 72, 0.08), 0 2px 6px rgba(15, 23, 42, 0.03) !important;
+    border-color: rgba(225, 29, 72, 0.25) !important;
+}
+
+/* Form Inputs, Selects & Textareas */
+.fi-fo-text-input input,
+.fi-fo-select select,
 .fi-fo-textarea textarea,
 .fi-fo-date-time-picker input {
-    background: rgba(255, 255, 255, 0.8) !important;
-    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid #cbd5e1 !important;
     border-radius: 10px !important;
     color: #0f172a !important;
-    backdrop-filter: blur(4px) !important;
+    font-size: 0.925rem !important;
     transition: all 0.2s ease !important;
 }
 
-.fi-fo-text-input input:focus, 
-.fi-fo-select select:focus, 
-.fi-fo-textarea textarea:focus {
+.fi-fo-text-input input:focus,
+.fi-fo-select select:focus,
+.fi-fo-textarea textarea:focus,
+.fi-fo-date-time-picker input:focus {
     background: #ffffff !important;
-    border-color: #fc144c !important;
-    box-shadow: 0 0 0 3px rgba(252, 20, 76, 0.15) !important;
+    border-color: #e11d48 !important;
+    box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.15) !important;
+    outline: none !important;
 }
 
-/* Buttons */
+/* Primary and Outline Buttons */
 .fi-btn {
     border-radius: 10px !important;
     font-weight: 600 !important;
-    letter-spacing: 0.025em !important;
-    transition: all 0.2s ease !important;
+    letter-spacing: 0.015em !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Modal Styling */
+.fi-btn-primary {
+    background: linear-gradient(135deg, #e11d48 0%, #be123c 100%) !important;
+    box-shadow: 0 4px 14px rgba(225, 29, 72, 0.25) !important;
+    border: none !important;
+}
+
+.fi-btn-primary:hover {
+    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+    box-shadow: 0 6px 20px rgba(225, 29, 72, 0.35) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Tables Modern Styling */
+.fi-ta-header {
+    background: transparent !important;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8) !important;
+    padding: 1rem 1.25rem !important;
+}
+
+.fi-ta-row {
+    transition: background-color 0.15s ease !important;
+}
+
+.fi-ta-row:hover {
+    background-color: rgba(248, 250, 252, 0.8) !important;
+}
+
+/* Modal Window Glassmorphism */
 .fi-modal-window {
-    background: rgba(255, 255, 255, 0.9) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.8) !important;
-    border-radius: 20px !important;
-    box-shadow: 0 24px 64px rgba(148, 163, 184, 0.15) !important;
-}
-
-/* Dropdown styling */
-.fi-dropdown-panel {
     background: rgba(255, 255, 255, 0.95) !important;
-    backdrop-filter: blur(16px) !important;
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
-    box-shadow: 0 10px 30px rgba(148, 163, 184, 0.1) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 25px 60px -10px rgba(15, 23, 42, 0.15) !important;
 }
 
-/* Tabs layout */
+/* Dropdown Panels */
+.fi-dropdown-panel {
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 30px -4px rgba(15, 23, 42, 0.1) !important;
+}
+
+/* Tabs Navigation Layout */
 .fi-tabs {
-    background: rgba(0, 0, 0, 0.02) !important;
+    background: rgba(241, 245, 249, 0.6) !important;
     border-radius: 12px !important;
     padding: 4px !important;
-    border: 1px solid rgba(0, 0, 0, 0.03) !important;
+    border: 1px solid rgba(226, 232, 240, 0.7) !important;
 }
+
 .fi-tabs-item-active {
-    background: rgba(252, 20, 76, 0.1) !important;
-    color: #fc144c !important;
+    background: #ffffff !important;
+    color: #e11d48 !important;
+    font-weight: 600 !important;
     border-radius: 8px !important;
-    border: 1px solid rgba(252, 20, 76, 0.2) !important;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05) !important;
 }
 
-/* Custom Table Row Styling */
-.fi-ta-record {
-    transition: background-color 0.2s ease !important;
-}
-.fi-ta-record:hover {
-    background-color: rgba(0, 0, 0, 0.01) !important;
-}
-
-/* Primary color active badges & tabs */
-.fi-badge-primary {
-    background-color: rgba(252, 20, 76, 0.1) !important;
-    color: #fc144c !important;
-    border: 1px solid rgba(252, 20, 76, 0.2) !important;
+/* Badges Polish */
+.fi-badge {
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em !important;
+    padding: 0.25rem 0.65rem !important;
 }

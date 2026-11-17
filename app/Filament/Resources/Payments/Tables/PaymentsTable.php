@@ -30,7 +30,7 @@ class PaymentsTable
                     ->label('Transaction ID')
                     ->searchable(),
                 TextColumn::make('amount')
-                    ->money('USD')
+                    ->money('INR')
                     ->sortable(),
                 TextColumn::make('gateway')
                     ->searchable(),

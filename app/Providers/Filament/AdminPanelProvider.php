@@ -28,13 +28,28 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
-            ->brandLogo('/logo.png')
-            ->brandLogoHeight('3rem')
-            ->sidebarWidth('15rem')
+            ->brandName('Dice Madly')
+            ->brandLogo(asset('logo.png'))
+            ->brandLogoHeight('2.75rem')
+            ->favicon(asset('favicon.png'))
+            ->sidebarCollapsibleOnDesktop()
+            ->sidebarWidth('16rem')
             ->colors([
-                'primary' => Color::hex('#770202ff'),
+                'primary' => Color::Rose,
+                'gray' => Color::Slate,
+                'info' => Color::Sky,
+                'success' => Color::Emerald,
+                'warning' => Color::Amber,
+                'danger' => Color::Rose,
             ])
             ->font('Outfit')
+            ->navigationGroups([
+                'User Management',
+                'Matchmaking',
+                'KYC & Security',
+                'Payments & Plans',
+                'Settings',
+            ])
             ->assets([
                 \Filament\Support\Assets\Css::make('admin-glass', asset('css/admin-glass.css')),
             ])

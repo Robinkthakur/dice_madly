@@ -105,9 +105,9 @@ class DatabaseSeeder extends Seeder
             $user->interestOptions()->sync($interestOptionIds);
         }
 
-        // Seed premium packages
+        // Seed premium packages (in Indian Rupee INR)
         \App\Models\Package::updateOrCreate(['name' => 'Gold Plan'], [
-            'price' => 19.99,
+            'price' => 999.00,
             'duration_days' => 30,
             'contact_limit' => 50,
             'interest_limit' => 100,
@@ -116,7 +116,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\Package::updateOrCreate(['name' => 'Diamond Plan'], [
-            'price' => 49.99,
+            'price' => 2499.00,
             'duration_days' => 90,
             'contact_limit' => 150,
             'interest_limit' => 300,
@@ -125,7 +125,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\Package::updateOrCreate(['name' => 'Platinum Plan'], [
-            'price' => 99.99,
+            'price' => 4999.00,
             'duration_days' => 180,
             'contact_limit' => 500,
             'interest_limit' => 1000,

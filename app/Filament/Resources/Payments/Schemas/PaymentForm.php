@@ -29,7 +29,7 @@ class PaymentForm
                                     ->label('Transaction / Order ID')
                                     ->disabled(),
                                 TextInput::make('amount')
-                                    ->prefix('$')
+                                    ->prefix('₹')
                                     ->disabled(),
                             ]),
 

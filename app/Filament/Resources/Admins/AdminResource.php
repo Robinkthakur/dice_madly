@@ -20,9 +20,17 @@ class AdminResource extends Resource
 {
     protected static ?string $model = Admin::class;
 
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-key';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-shield-check';
 
-    protected static string|\UnitEnum|null $navigationGroup = 'User Management';
+    protected static string|\UnitEnum|null $navigationGroup = 'Settings';
+
+    protected static ?string $navigationLabel = 'Admin Users';
+
+    protected static ?string $modelLabel = 'Admin User';
+
+    protected static ?string $pluralModelLabel = 'Admin Users';
+
+    protected static ?int $navigationSort = 99;
 
     protected static function getAuthenticatedAdmin()
     {

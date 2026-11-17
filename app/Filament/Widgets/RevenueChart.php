@@ -27,10 +27,10 @@ class RevenueChart extends ChartWidget
         return [
             'datasets' => [
                 [
-                    'label' => 'Revenue ($)',
+                    'label' => 'Revenue (₹)',
                     'data' => $data,
-                    'backgroundColor' => '#fc144c', // Matching new primary color #fc144c
-                    'borderColor' => '#fc144c',
+                    'backgroundColor' => '#e11d48',
+                    'borderColor' => '#be123c',
                 ],
             ],
             'labels' => $months,
