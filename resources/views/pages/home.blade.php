@@ -324,6 +324,7 @@
                 <div style="font-size: 3.2rem; margin-bottom: 12px;">🛡️</div>
                 <h4 style="color: var(--text-primary); margin-bottom: 8px;">100% Genuine Humans</h4>
                 <p style="font-size: 0.92rem; margin-bottom: 20px;">Every profile goes through automated and human moderation checks before entering the active discovery pool.</p>
+                <a href="{{ route('safety-standards') }}" class="btn btn-primary btn-sm" style="width: 100%; margin-bottom: 8px;">View Safety Standards</a>
                 <a href="{{ route('community-guidelines') }}" class="btn btn-secondary btn-sm" style="width: 100%;">Read Community Guidelines</a>
             </div>
         </div>

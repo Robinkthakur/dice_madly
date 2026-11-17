@@ -106,6 +106,24 @@ class PageController extends Controller
     }
 
     /**
+     * Display Google Play compliant Safety Standards & Child Safety (CSAE/CSAM prevention) policy.
+     */
+    public function safetyStandards()
+    {
+        return view('pages.safety-standards', [
+            'appName' => config('app.name', 'Dice Madly'),
+            'lastUpdated' => 'November 17, 2026',
+            'safetyEmail' => 'safety@dicemadly.com',
+            'childSafetyEmail' => 'child-safety@dicemadly.com',
+            'supportEmail' => 'support@dicemadly.com',
+            'grievanceEmail' => 'grievance@dicemadly.com',
+            'cyberTiplineUrl' => 'https://report.cybertip.org',
+            'ncmecUrl' => 'https://www.missingkids.org',
+            'cyberCrimeGovUrl' => 'https://cybercrime.gov.in',
+        ]);
+    }
+
+    /**
      * Display the Community Guidelines & Safe Dating tips.
      */
     public function communityGuidelines()

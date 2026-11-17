@@ -19,9 +19,14 @@ Route::get('/delete-account', [PageController::class, 'deleteAccount'])->name('d
 Route::get('/data-deletion', [PageController::class, 'deleteAccount'])->name('data-deletion'); // Alias
 Route::post('/delete-account-request', [PageController::class, 'submitDeleteAccountRequest'])->name('delete-account.submit');
 
+// Google Play Console Safety Standards & Child Safety (CSAM/CSAE Prevention)
+Route::get('/safety-standards', [PageController::class, 'safetyStandards'])->name('safety-standards');
+Route::get('/child-safety-standards', [PageController::class, 'safetyStandards'])->name('child-safety-standards');
+Route::get('/child-safety', [PageController::class, 'safetyStandards']);
+Route::get('/safety', [PageController::class, 'safetyStandards']);
+
 // Community Guidelines & Safe Dating
 Route::get('/community-guidelines', [PageController::class, 'communityGuidelines'])->name('community-guidelines');
-Route::get('/safety', [PageController::class, 'communityGuidelines']); // Alias
 
 // In-App Purchase & Refund Policy
 Route::get('/refund-policy', [PageController::class, 'refundPolicy'])->name('refund-policy');

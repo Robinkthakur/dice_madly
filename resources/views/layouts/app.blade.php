@@ -47,7 +47,7 @@
                 <ul class="nav-links">
                     <li><a href="{{ route('home') }}#features" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Features</a></li>
                     <li><a href="{{ route('home') }}#how-it-works" class="nav-link">How It Works</a></li>
-                    <li><a href="{{ route('home') }}#safety" class="nav-link">Safety Pledge</a></li>
+                    <li><a href="{{ route('safety-standards') }}" class="nav-link {{ request()->routeIs('safety-standards*') ? 'active' : '' }}">Safety Standards</a></li>
                     <li><a href="{{ route('rent-companion') }}" class="nav-link {{ request()->routeIs('rent-companion*') ? 'active' : '' }}" style="color: #be123c; font-weight: 700;">Rent Companion 💖</a></li>
                     <li><a href="{{ route('pre-register') }}" class="nav-link {{ request()->routeIs('pre-register') ? 'active' : '' }}" style="color: var(--primary); font-weight: 700;">Pre-Register ✨</a></li>
                     <li><a href="{{ route('home') }}#faq" class="nav-link">FAQ</a></li>
@@ -85,7 +85,7 @@
                 </a>
                 <a href="{{ route('home') }}#features" style="color: var(--text-secondary); padding: 6px 0;">Features</a>
                 <a href="{{ route('home') }}#how-it-works" style="color: var(--text-secondary); padding: 6px 0;">How It Works</a>
-                <a href="{{ route('home') }}#safety" style="color: var(--text-secondary); padding: 6px 0;">Safety & KYC</a>
+                <a href="{{ route('safety-standards') }}" style="color: var(--text-secondary); padding: 6px 0;">Safety Standards</a>
                 <a href="{{ route('home') }}#faq" style="color: var(--text-secondary); padding: 6px 0;">FAQ</a>
                 <div style="height: 1px; background: var(--border-subtle); margin: 6px 0;"></div>
                 <a href="{{ route('contact') }}" style="color: var(--text-secondary); padding: 6px 0;">Contact Support</a>
@@ -135,6 +135,7 @@
                 <div class="footer-column">
                     <h5>Policies & Legal</h5>
                     <ul class="footer-links">
+                        <li><a href="{{ route('safety-standards') }}" style="color: var(--primary); font-weight: 600;">🛡️ Safety Standards</a></li>
                         <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
                         <li><a href="{{ route('terms') }}">Terms of Service</a></li>
                         {{-- <li><a href="{{ route('delete-account') }}">Account & Data Deletion</a></li> --}}
@@ -160,6 +161,7 @@
                     &copy; {{ date('Y') }} {{ config('app.name', 'Dice Madly') }}. All rights reserved. Built for meaningful dating and matrimony.
                 </div>
                 <div style="display: flex; gap: 20px;">
+                    <a href="{{ route('safety-standards') }}" style="color: var(--text-muted); font-size: 0.85rem;">Safety Standards</a>
                     <a href="{{ route('privacy') }}" style="color: var(--text-muted); font-size: 0.85rem;">Privacy</a>
                     <a href="{{ route('terms') }}" style="color: var(--text-muted); font-size: 0.85rem;">Terms</a>
                     {{-- <a href="{{ route('delete-account') }}" style="color: var(--text-muted); font-size: 0.85rem;">Data Safety</a> --}}

@@ -65,6 +65,31 @@ class WebPagesTest extends TestCase
         $response->assertSessionHas('success_request');
     }
 
+    public function test_safety_standards_page_loads_successfully(): void
+    {
+        $response = $this->get('/safety-standards');
+        $response->assertStatus(200);
+        $response->assertSee('Safety Standards');
+        $response->assertSee('Zero Tolerance');
+        $response->assertSee('Child Sexual Exploitation and Abuse');
+        $response->assertSee('NCMEC');
+        $response->assertSee('18+');
+    }
+
+    public function test_child_safety_standards_alias_loads_successfully(): void
+    {
+        $response = $this->get('/child-safety-standards');
+        $response->assertStatus(200);
+        $response->assertSee('Safety Standards');
+    }
+
+    public function test_safety_alias_loads_successfully(): void
+    {
+        $response = $this->get('/safety');
+        $response->assertStatus(200);
+        $response->assertSee('Safety Standards');
+    }
+
     public function test_community_guidelines_loads_successfully(): void
     {
         $response = $this->get('/community-guidelines');
