@@ -197,10 +197,6 @@ class LoginController extends Controller
      */
     protected function generateUniqueProfileId(): string
     {
-        do {
-            $profileId = 'DM-' . random_int(100000, 999999);
-        } while (User::where('profile_id', $profileId)->exists());
-
-        return $profileId;
+        return User::generateUniqueProfileId();
     }
 }

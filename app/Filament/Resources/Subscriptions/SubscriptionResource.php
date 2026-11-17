@@ -7,6 +7,7 @@ use App\Filament\Resources\Subscriptions\Pages\EditSubscription;
 use App\Filament\Resources\Subscriptions\Pages\ListSubscriptions;
 use App\Filament\Resources\Subscriptions\Schemas\SubscriptionForm;
 use App\Filament\Resources\Subscriptions\Tables\SubscriptionsTable;
+use App\Filament\Traits\HasRoleBasedAuthorization;
 use App\Models\Subscription;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -16,31 +17,13 @@ use Filament\Tables\Table;
 
 class SubscriptionResource extends Resource
 {
+    use HasRoleBasedAuthorization;
+
     protected static ?string $model = Subscription::class;
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-bookmark-square';
 
     protected static string|\UnitEnum|null $navigationGroup = 'Payments & Plans';
-
-    public static function canViewAny(): bool
-    {
-        return auth()->user() && in_array(auth()->user()->role, ['Super Admin', 'Moderator']);
-    }
-
-    public static function canCreate(): bool
-    {
-        return auth()->user() && auth()->user()->role === 'Super Admin';
-    }
-
-    public static function canEdit($record): bool
-    {
-        return auth()->user() && auth()->user()->role === 'Super Admin';
-    }
-
-    public static function canDelete($record): bool
-    {
-        return auth()->user() && auth()->user()->role === 'Super Admin';
-    }
 
     public static function form(Schema $schema): Schema
     {
@@ -63,6 +46,8 @@ class SubscriptionResource extends Resource
     {
         return [
             'index' => ListSubscriptions::route('/'),
+            'create' => CreateSubscription::route('/create'),
+            'edit' => EditSubscription::route('/{record}/edit'),
         ];
     }
 }

@@ -3,8 +3,9 @@
 namespace App\Filament\Resources\Subscriptions\Schemas;
 
 use Filament\Schemas\Schema;
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\DateTimePicker;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Grid;
 
@@ -16,29 +17,46 @@ class SubscriptionForm
             ->components([
                 Grid::make(2)
                     ->schema([
-                        Section::make('Subscription details')
+                        Section::make('Subscription Details')
                             ->columnSpan(1)
                             ->schema([
-                                TextInput::make('user.email')
-                                    ->label('User Account')
-                                    ->disabled(),
-                                TextInput::make('package.name')
-                                    ->label('Package Plan')
-                                    ->disabled(),
-                                TextInput::make('status')
-                                    ->disabled(),
+                                Select::make('user_id')
+                                    ->relationship('user', 'email')
+                                    ->searchable()
+                                    ->preload()
+                                    ->required()
+                                    ->label('User Account'),
+                                Select::make('package_id')
+                                    ->relationship('package', 'name')
+                                    ->searchable()
+                                    ->preload()
+                                    ->required()
+                                    ->label('Package Plan'),
+                                Select::make('status')
+                                    ->options([
+                                        'Active' => 'Active',
+                                        'Expired' => 'Expired',
+                                        'Cancelled' => 'Cancelled',
+                                    ])
+                                    ->default('Active')
+                                    ->required(),
                             ]),
 
                         Section::make('Subscription Timeline')
                             ->columnSpan(1)
                             ->schema([
                                 DatePicker::make('start_date')
-                                    ->disabled(),
+                                    ->label('Start Date')
+                                    ->default(now())
+                                    ->required(),
                                 DatePicker::make('end_date')
-                                    ->disabled(),
-                                TextInput::make('created_at')
+                                    ->label('End Date')
+                                    ->default(now()->addDays(30))
+                                    ->required(),
+                                DateTimePicker::make('created_at')
                                     ->label('Created Timestamp')
-                                    ->disabled(),
+                                    ->disabled()
+                                    ->hiddenOn('create'),
                             ]),
                     ]),
             ]);

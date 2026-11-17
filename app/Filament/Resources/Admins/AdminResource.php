@@ -24,9 +24,15 @@ class AdminResource extends Resource
 
     protected static string|\UnitEnum|null $navigationGroup = 'User Management';
 
+    protected static function getAuthenticatedAdmin()
+    {
+        return auth('admin')->user() ?? auth()->user();
+    }
+
     public static function canViewAny(): bool
     {
-        return auth()->user() && auth()->user()->role === 'Super Admin';
+        $user = static::getAuthenticatedAdmin();
+        return $user && $user->role === 'Super Admin';
     }
 
     public static function form(Schema $schema): Schema

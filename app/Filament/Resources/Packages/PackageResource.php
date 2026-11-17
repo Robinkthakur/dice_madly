@@ -22,24 +22,33 @@ class PackageResource extends Resource
 
     protected static string|\UnitEnum|null $navigationGroup = 'Payments & Plans';
 
+    protected static function getAuthenticatedAdmin()
+    {
+        return auth('admin')->user() ?? auth()->user();
+    }
+
     public static function canViewAny(): bool
     {
-        return auth()->user() && in_array(auth()->user()->role, ['Super Admin', 'Moderator']);
+        $user = static::getAuthenticatedAdmin();
+        return $user && in_array($user->role, ['Super Admin', 'Moderator']);
     }
 
     public static function canCreate(): bool
     {
-        return auth()->user() && auth()->user()->role === 'Super Admin';
+        $user = static::getAuthenticatedAdmin();
+        return $user && $user->role === 'Super Admin';
     }
 
     public static function canEdit($record): bool
     {
-        return auth()->user() && auth()->user()->role === 'Super Admin';
+        $user = static::getAuthenticatedAdmin();
+        return $user && $user->role === 'Super Admin';
     }
 
     public static function canDelete($record): bool
     {
-        return auth()->user() && auth()->user()->role === 'Super Admin';
+        $user = static::getAuthenticatedAdmin();
+        return $user && $user->role === 'Super Admin';
     }
 
     public static function form(Schema $schema): Schema

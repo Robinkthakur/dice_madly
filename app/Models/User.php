@@ -45,6 +45,30 @@ class User extends Authenticatable implements FilamentUser
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
     /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::creating(function (User $user) {
+            if (empty($user->profile_id)) {
+                $user->profile_id = static::generateUniqueProfileId();
+            }
+        });
+    }
+
+    /**
+     * Generate a unique profile_id starting with 'DM-'
+     */
+    public static function generateUniqueProfileId(): string
+    {
+        do {
+            $profileId = 'DM-' . random_int(100000, 999999);
+        } while (static::where('profile_id', $profileId)->exists());
+
+        return $profileId;
+    }
+
+    /**
      * Determine if the user can access the Filament panel.
      */
     public function canAccessPanel(Panel $panel): bool

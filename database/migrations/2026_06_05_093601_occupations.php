@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->foreignId('user_id')->constrained();
 
-            $table->string('occupation');
+            $table->string('occupation')->nullable();
             $table->string('company')->nullable();
 
             $table->decimal('annual_income',12,2)->nullable();

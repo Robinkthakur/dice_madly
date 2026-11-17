@@ -19,14 +19,14 @@ return new class extends Migration
 
             $table->foreignId('package_id')->constrained();
 
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
 
             $table->enum('status',[
                 'Active',
                 'Expired',
                 'Cancelled'
-            ]);
+            ])->default('Active');
 
             $table->timestamps();
         });

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('reported_user')
                 ->constrained('users');
 
-            $table->text('reason');
+            $table->text('reason')->nullable();
 
             $table->enum('status',[
                 'Pending',

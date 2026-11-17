@@ -64,6 +64,13 @@ class ProfileController extends Controller
                 if ($request->has('dob')) {
                     $userUpdate['dob'] = $request->input('dob');
                 }
+                if ($request->hasFile('profile_image')) {
+                    $file = $request->file('profile_image');
+                    if ($user->profile_image && !str_starts_with($user->profile_image, 'http')) {
+                        Storage::disk('public')->delete($user->profile_image);
+                    }
+                    $userUpdate['profile_image'] = $file->store('profiles', 'public');
+                }
                 if (!empty($userUpdate)) {
                     $user->update($userUpdate);
                 }
@@ -156,8 +163,20 @@ class ProfileController extends Controller
         try {
             $user = $request->user();
 
+            $file = $request->file('profile_image')
+                ?? $request->file('image')
+                ?? $request->file('file')
+                ?? $request->file('avatar');
+
+            if (!$file) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'No image file was provided.',
+                ], 422);
+            }
+
             // Store profile image on the public disk
-            $path = $request->file('profile_image')->store('profiles', 'public');
+            $path = $file->store('profiles', 'public');
 
             // Delete old local profile image if it exists to save storage space
             if ($user->profile_image && !str_starts_with($user->profile_image, 'http')) {

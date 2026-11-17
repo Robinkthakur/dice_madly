@@ -40,7 +40,8 @@ Route::prefix('v1')->group(function () {
 
         // Onboarding/Profile setup routes (maintaining auth prefix structure)
         Route::prefix('auth/profile')->group(function () {
-            Route::post('bio-dp', [ProfileSetupController::class, 'saveBioDp']);
+            Route::match(['post', 'put'], 'bio-dp', [ProfileSetupController::class, 'saveBioDp']);
+            Route::match(['post', 'put'], 'image', [ProfileController::class, 'updateProfileImage']);
             Route::post('id-proof', [ProfileSetupController::class, 'uploadIdProof']);
             Route::post('selfie', [ProfileSetupController::class, 'verifySelfie']);
             Route::get('interests/options', [ProfileSetupController::class, 'listInterestOptions']);
@@ -49,10 +50,11 @@ Route::prefix('v1')->group(function () {
 
         // Profile editing and management routes
         Route::prefix('profile')->group(function () {
-            Route::put('about-me', [ProfileController::class, 'saveAboutMe']);
-            Route::put('edit', [ProfileController::class, 'updateProfile']);
-            Route::put('interests', [ProfileController::class, 'updateInterests']);
-            Route::post('image', [ProfileController::class, 'updateProfileImage']);
+            Route::match(['post', 'put'], 'about-me', [ProfileController::class, 'saveAboutMe']);
+            Route::match(['post', 'put'], 'edit', [ProfileController::class, 'updateProfile']);
+            Route::match(['post', 'put'], 'interests', [ProfileController::class, 'updateInterests']);
+            Route::match(['post', 'put'], 'image', [ProfileController::class, 'updateProfileImage']);
+            Route::match(['post', 'put'], 'bio-dp', [ProfileSetupController::class, 'saveBioDp']);
         });
 
         // Discovery

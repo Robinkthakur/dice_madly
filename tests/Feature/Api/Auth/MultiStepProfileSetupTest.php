@@ -46,14 +46,12 @@ class MultiStepProfileSetupTest extends TestCase
         $user = User::factory()->create(['onboarding_step' => 'bio_dp']);
         $token = $user->createToken('auth_token')->plainTextToken;
 
-        // 1. Validation check
+        // 1. Validation check (missing profile_image)
         $response = $this->withHeader('Authorization', 'Bearer ' . $token)
-            ->postJson('/api/v1/auth/profile/bio-dp', [
-                'about_me' => 'Short', // too short
-            ]);
+            ->postJson('/api/v1/auth/profile/bio-dp', []);
 
         $response->assertStatus(422)
-            ->assertJsonValidationErrors(['about_me', 'profile_image']);
+            ->assertJsonValidationErrors(['profile_image']);
 
         // 2. Success upload
         $image = UploadedFile::fake()->image('profile.jpg');
@@ -76,6 +74,39 @@ class MultiStepProfileSetupTest extends TestCase
         ]);
 
         Storage::disk('public')->assertExists($user->profile_image);
+    }
+
+    public function test_profile_image_upload_with_image_alias_and_base64()
+    {
+        $user = User::factory()->create(['onboarding_step' => 'bio_dp']);
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        // 1. Upload using alias 'image' via multipart form
+        $image = UploadedFile::fake()->image('profile_alias.png');
+        $response = $this->withHeader('Authorization', 'Bearer ' . $token)
+            ->post('/api/v1/auth/profile/bio-dp', [
+                'image' => $image,
+            ]);
+        $response->assertStatus(200)
+            ->assertJsonPath('success', true);
+
+        // 2. Upload using base64 string
+        $base64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==';
+        $response = $this->withHeader('Authorization', 'Bearer ' . $token)
+            ->postJson('/api/v1/profile/image', [
+                'profile_image' => $base64,
+            ]);
+        $response->assertStatus(200)
+            ->assertJsonPath('success', true);
+
+        // 3. Upload using PUT to /api/v1/profile/image with alias 'image'
+        $imagePut = UploadedFile::fake()->image('profile_put.jpg');
+        $response = $this->withHeader('Authorization', 'Bearer ' . $token)
+            ->put('/api/v1/profile/image', [
+                'image' => $imagePut,
+            ]);
+        $response->assertStatus(200)
+            ->assertJsonPath('success', true);
     }
 
     /**

@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->foreignId('user_id')->constrained();
 
-            $table->string('highest_qualification');
+            $table->string('highest_qualification')->nullable();
             $table->string('college')->nullable();
             $table->string('university')->nullable();
 

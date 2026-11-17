@@ -4,6 +4,8 @@ namespace App\Filament\Resources\Subscriptions\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
 use Filament\Actions\ActionGroup;
 use Filament\Tables\Table;
@@ -34,11 +36,11 @@ class SubscriptionsTable
                     ->sortable(),
                 TextColumn::make('status')
                     ->badge()
-                    ->color(fn (string $state): string => match ($state) {
+                    ->color(fn (?string $state): string => match (strtolower($state ?? '')) {
                         'active' => 'success',
                         'expired' => 'danger',
-                        'pending' => 'warning',
-                        default => 'gray',
+                        'cancelled' => 'gray',
+                        default => 'warning',
                     }),
                 TextColumn::make('created_at')
                     ->dateTime()
@@ -48,14 +50,15 @@ class SubscriptionsTable
             ->filters([
                 SelectFilter::make('status')
                     ->options([
-                        'active' => 'Active',
-                        'expired' => 'Expired',
-                        'pending' => 'Pending',
+                        'Active' => 'Active',
+                        'Expired' => 'Expired',
+                        'Cancelled' => 'Cancelled',
                     ]),
             ])
             ->recordActions([
                 ActionGroup::make([
-                    ViewAction::make(),
+                    EditAction::make(),
+                    DeleteAction::make(),
                 ])
                 ->label('Actions')
                 ->icon('heroicon-m-chevron-down')

@@ -19,7 +19,7 @@ return new class extends Migration
                 ->constrained()
                 ->nullOnDelete();
 
-            $table->string('action');
+            $table->string('action')->nullable();
 
             $table->string('module')->nullable();
 

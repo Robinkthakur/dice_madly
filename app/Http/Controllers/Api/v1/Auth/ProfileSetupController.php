@@ -21,19 +21,33 @@ class ProfileSetupController extends Controller
     {
         $user = $request->user();
 
-        // Store profile image on the public disk
-        $path = $request->file('profile_image')->store('profiles', 'public');
+        $file = $request->file('profile_image')
+            ?? $request->file('image')
+            ?? $request->file('file')
+            ?? $request->file('avatar');
 
-        // Update User and UserProfile
-        $user->update([
-            'profile_image' => $path,
-            'onboarding_step' => 'id_proof',
-        ]);
+        if ($file) {
+            // Delete old profile image if exists
+            if ($user->profile_image && !str_starts_with($user->profile_image, 'http')) {
+                Storage::disk('public')->delete($user->profile_image);
+            }
 
-        $user->profile()->updateOrCreate(
-            ['user_id' => $user->id],
-            ['about_me' => $request->input('about_me')]
-        );
+            // Store profile image on the public disk
+            $path = $file->store('profiles', 'public');
+
+            $userUpdate = ['profile_image' => $path];
+            if ($user->onboarding_step === 'bio_dp') {
+                $userUpdate['onboarding_step'] = 'id_proof';
+            }
+            $user->update($userUpdate);
+        }
+
+        if ($request->has('about_me') && $request->input('about_me') !== null) {
+            $user->profile()->updateOrCreate(
+                ['user_id' => $user->id],
+                ['about_me' => $request->input('about_me')]
+            );
+        }
 
         return response()->json([
             'success' => true,

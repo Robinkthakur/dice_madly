@@ -17,8 +17,8 @@ return new class extends Migration
             $table->enum('type', ['client', 'partner'])->default('client')->comment('client = Looking to rent, partner = Register as companion');
             $table->string('name');
             $table->string('email');
-            $table->string('phone');
-            $table->enum('gender', ['Male', 'Female', 'Other']);
+            $table->string('phone')->nullable();
+            $table->enum('gender', ['Male', 'Female', 'Other'])->nullable();
             $table->enum('rent_target', ['boyfriend', 'girlfriend', 'both'])->default('girlfriend')->comment('Target companion or service offering');
             $table->integer('age')->nullable();
             $table->string('city')->nullable();

@@ -21,7 +21,7 @@ return new class extends Migration
                 'Email',
                 'Phone',
                 'Government ID'
-            ]);
+            ])->nullable();
 
             $table->string('document')->nullable();
 

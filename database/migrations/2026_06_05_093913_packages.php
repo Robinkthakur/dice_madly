@@ -17,17 +17,17 @@ return new class extends Migration
 
             $table->string('name');
 
-            $table->decimal('price',10,2);
+            $table->decimal('price',10,2)->default(0)->nullable();
 
-            $table->integer('duration_days');
+            $table->integer('duration_days')->default(30)->nullable();
 
-            $table->integer('contact_limit');
+            $table->integer('contact_limit')->default(0)->nullable();
 
-            $table->integer('interest_limit');
+            $table->integer('interest_limit')->default(0)->nullable();
 
-            $table->boolean('chat_access');
+            $table->boolean('chat_access')->default(false);
 
-            $table->boolean('view_contact');
+            $table->boolean('view_contact')->default(false);
 
             $table->timestamps();
         });

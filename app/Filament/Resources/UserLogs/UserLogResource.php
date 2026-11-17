@@ -22,9 +22,15 @@ class UserLogResource extends Resource
 
     protected static string|\UnitEnum|null $navigationGroup = 'User Management';
 
+    protected static function getAuthenticatedAdmin()
+    {
+        return auth('admin')->user() ?? auth()->user();
+    }
+
     public static function canViewAny(): bool
     {
-        return auth()->user() && in_array(auth()->user()->role, ['Super Admin', 'Moderator', 'Support']);
+        $user = static::getAuthenticatedAdmin();
+        return $user && in_array($user->role, ['Super Admin', 'Moderator', 'Support']);
     }
 
     public static function canCreate(): bool
@@ -39,7 +45,8 @@ class UserLogResource extends Resource
 
     public static function canDelete($record): bool
     {
-        return auth()->user() && auth()->user()->role === 'Super Admin';
+        $user = static::getAuthenticatedAdmin();
+        return $user && $user->role === 'Super Admin';
     }
 
     public static function form(Schema $schema): Schema

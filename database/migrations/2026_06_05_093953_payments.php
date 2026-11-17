@@ -17,19 +17,19 @@ return new class extends Migration
 
             $table->foreignId('user_id')->constrained();
 
-            $table->foreignId('package_id')->constrained();
+            $table->foreignId('package_id')->nullable()->constrained();
 
-            $table->string('transaction_id');
+            $table->string('transaction_id')->nullable();
 
-            $table->decimal('amount',10,2);
+            $table->decimal('amount',10,2)->default(0)->nullable();
 
-            $table->string('gateway');
+            $table->string('gateway')->default('manual')->nullable();
 
             $table->enum('status',[
                 'Pending',
                 'Paid',
                 'Failed'
-            ]);
+            ])->default('Pending');
 
             $table->json('gateway_response')->nullable();
 

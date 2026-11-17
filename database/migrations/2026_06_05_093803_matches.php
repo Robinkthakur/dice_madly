@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('matched_user_id')
                 ->constrained('users');
 
-            $table->decimal('match_percentage',5,2);
+            $table->decimal('match_percentage',5,2)->default(0)->nullable();
 
             $table->timestamps();
         });
